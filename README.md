@@ -1,1 +1,1 @@
-# scripts
+# HGM Assistant
