@@ -12,7 +12,7 @@ local gk = require 'game.keys'
 
 encoding.default = 'CP1251'
 u8 = encoding.UTF8
-hk._SETTINGS.noKeysMessage = u8("Нет")
+hk._SETTINGS.noKeysMessage = u8("ГЌГҐГІ")
 
 local file = getWorkingDirectory() .. "\\hgm_assistant\\binds.bind"
 local tEditData = {
@@ -33,7 +33,7 @@ if doesFileExist(file) then
 else
 	tBindList = {
 		[1] = {
-			text = "/r [Взвод №1]: ",
+			text = "/r [Г‚Г§ГўГ®Г¤ В№1]: ",
 			v = {vkeys.VK_3}
 		},
 		[2] = {
@@ -174,7 +174,7 @@ function imgui.OnDrawFrame()
    imgui.SetNextWindowPos(imgui.ImVec2(iScreenWidth / 2, iScreenHeight / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
    imgui.SetNextWindowSize(imgui.ImVec2(800, 500), imgui.Cond.FirstUseEver)
 
-   imgui.Begin(u8("Perfect Binder | Главное меню##main"), bMainWindow, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize)
+   imgui.Begin(u8("Perfect Binder | ГѓГ«Г ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ##main"), bMainWindow, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize)
 	imgui.BeginChild("##bindlist", imgui.ImVec2(795, 442))
 	for k, v in ipairs(tBindList) do
 		if hk.HotKey("##HK" .. k, v, tLastKeys, 100) then
@@ -193,7 +193,7 @@ function imgui.OnDrawFrame()
 			if sText:len() > 0 then
 				imgui.Text(u8(sText))
 			else
-				imgui.TextDisabled(u8("Пустое сообщение ..."))
+				imgui.TextDisabled(u8("ГЏГіГ±ГІГ®ГҐ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ ..."))
 			end
 			imgui.EndChild()
 			if imgui.IsItemClicked() then
@@ -209,7 +209,7 @@ function imgui.OnDrawFrame()
 			imgui.PopItemWidth()
 			imgui.PopAllowKeyboardFocus()
 			imgui.SameLine()
-			imgui.Checkbox(u8("Ввод") .. "##editCH" .. k, bIsEnterEdit)
+			imgui.Checkbox(u8("Г‚ГўГ®Г¤") .. "##editCH" .. k, bIsEnterEdit)
 			if save then
 				tBindList[tEditData.id].text = u8:decode(sInputEdit.v) .. (bIsEnterEdit.v and "[enter]" or "")
 				tEditData.id = -1
@@ -224,7 +224,7 @@ function imgui.OnDrawFrame()
 
 	imgui.Separator()
 
-	if imgui.Button(u8"Добавить клавишу") then
+	if imgui.Button(u8"Г„Г®ГЎГ ГўГЁГІГј ГЄГ«Г ГўГЁГёГі") then
 		tBindList[#tBindList + 1] = {text = "", v = {}}
 	end
 
